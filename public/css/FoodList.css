@@ -1,0 +1,116 @@
+.food-list-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+.food-list-message {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.loading {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.error {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.no-results {
+    color: #777;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.weather-info {
+    text-align: center;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+}
+
+.weather-info p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.temp-value {
+    font-weight: 900;
+    font-size: 1.4em;
+    margin-left: 10px;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+.temp-value.frio {
+    color: #007bff;
+    background-color: #e6f3ff;
+}
+
+.temp-value.calor {
+    color: #ff9800;
+    background-color: #fff3e0;
+}
+
+.recommendation-text {
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+}
+
+.food-list {
+    list-style: none;
+    padding: 0;
+}
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1em;
+}
+
+.food-item:last-child {
+    border-bottom: none;
+}
+
+.food-title {
+    color: #333;
+    text-align: left;
+}
+
+.food-calories {
+    font-weight: bold;
+    color: #4CAF50;
+    background-color: #e8f5e9;
+    padding: 4px 10px;
+    border-radius: 20px;
+    min-width: 80px;
+    text-align: center;
+}
