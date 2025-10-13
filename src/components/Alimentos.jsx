@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import '../../public/css/FoodList.css';
 
-const SPOONACULAR_API_KEY = "b5cc1de8ecde448898f802910d46c20c";
-const WEATHER_API_KEY = "d85ced7681b82087c8aff9f632f861cb";
+const SPOONACULAR_API_KEY = import.meta.env.VITE_API_SPOONACULAR_API_KEY;
+const WEATHER_API_KEY = import.meta.env.VITE_API_WEATHER_API_KEY;
 
 function FoodList() {
     const [foods, setFoods] = useState([]);
