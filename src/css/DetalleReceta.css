@@ -1,0 +1,100 @@
+.container-details {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin: 10px;
+}
+
+img {
+    border-radius: 8px;
+}
+
+p {
+    margin: 5px;
+    background-color: white;
+    color: #222;
+    border-radius: 8px;
+    max-width: 85%;
+    padding: 10px;
+    font-size: 1.1em
+}
+
+.msgCarga {
+    background-color: white;
+    color: #222;
+    border-radius: 8px;
+    max-width: 100%;
+    padding: 10px;
+    font-size: 1.1em
+}
+
+.infoDetailFood {
+    display: flex;
+}
+
+.imgIngreContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ingreTittleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredientTittle {
+    margin: 20px 0 0 0;
+    color: white;
+}
+
+.ingredientContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 30px;
+    max-width: 80%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.ingredientContainer a {
+    color: black;
+}
+
+.instructionsTittle {
+    margin: 20px 0 0 0;
+    color: white;
+}
+
+.instructionsContainer {
+    max-width: 80%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
+
+.instructionsContainer li {
+    color: black;
+    font-weight: bold;
+}
+
+@media (min-width: 1000px) {
+
+    .imgIngreContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    img {
+        width: 50%;
+    }
+}

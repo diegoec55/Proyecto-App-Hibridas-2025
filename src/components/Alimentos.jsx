@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import '../../public/css/FoodList.css';
+import '../css/FoodList.css';
+import DetalleReceta from "./DetalleReceta";
+import {Link} from "react-router-dom"
 
 const SPOONACULAR_API_KEY = import.meta.env.VITE_API_SPOONACULAR_API_KEY;
 const WEATHER_API_KEY = import.meta.env.VITE_API_WEATHER_API_KEY;
@@ -9,6 +11,7 @@ function FoodList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [temperatura, setTemperatura] = useState(null);
+    const [recetaId, setRecetaId] = useState()
 
     useEffect(() => {
         fetchData();
@@ -24,14 +27,11 @@ function FoodList() {
 
             let minCals, maxCals;
             
-            // Lógica: Si la temperatura es menor a 20°C, buscamos alimentos con MÁS de 250 cal.
             if (temp < 20) {
-                // Clima frío: alta energía (250 a 600 cal)
                 minCals = 250;
                 maxCals = 600; 
                 console.log(`Temp ${temp}°C. Buscando > 250 calorías.`);
             } else {
-                // Clima cálido: baja energía (50 a 250 cal)
                 minCals = 50;
                 maxCals = 250; 
                 console.log(`Temp ${temp}°C. Buscando < 250 calorías.`);
@@ -61,7 +61,8 @@ function FoodList() {
 
     const fetchFoods = async (minCals, maxCals) => {
         const res = await fetch(
-            `https://api.spoonacular.com/recipes/findByNutrients?minCalories=${minCals}&maxCalories=${maxCals}&number=10&apiKey=${SPOONACULAR_API_KEY}`);
+            // `https://api.spoonacular.com/recipes/findByNutrients?minCalories=${minCals}&maxCalories=${maxCals}&number=10&apiKey=${SPOONACULAR_API_KEY}`);
+            `http://localhost:3000/alimentos${minCals}`);
         
         if (!res.ok) {
             throw new Error(`Error al obtener alimentos. Estado: ${res.status}`);
@@ -89,10 +90,10 @@ function FoodList() {
             <h2 className="main-title">Sugerencias Alimenticias</h2>
             
             <div className="weather-info">
-                <p>Temperatura Actual en Rosario: 
-                   <span className={`temp-value ${temperatura < 20 ? 'frio' : 'calor'}`}>
-                       {temperatura.toFixed(1)}°C
-                   </span>
+                <p className="tempText">Temperatura Actual en Rosario: 
+                    <span className={`temp-value ${temperatura < 20 ? 'frio' : 'calor'}`}>
+                        {temperatura.toFixed(1)}°C
+                    </span>
                 </p>
                 <p className="recommendation-text">{recomendacion}</p>
             </div>
@@ -103,10 +104,14 @@ function FoodList() {
             <ul className="food-list">
                 {foods.length > 0 ? (
                     foods.map((food) => (
-                        <li key={food.id} className="food-item">
-                            <span className="food-title">{food.title}</span> 
-                            <span className="food-calories">{food.calories} kcal</span>
-                        </li>
+                        <Link key={food.id}  to={`/alimentos/${food.id}`}>
+                            <li className="food-item">
+                                <span className="food-title">{food.title}</span>
+
+                                    {/* <button>Ver receta</button> */}
+                                <span className="food-calories">{food.calories} kcal</span>
+                            </li>
+                        </Link>
                     ))
                 ) : (
                     <p className="no-results">No se encontraron alimentos en este rango calórico.</p>
